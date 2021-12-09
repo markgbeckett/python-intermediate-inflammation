@@ -22,7 +22,7 @@ def daily_mean(data):
     """Calculate the daily mean of a 2D inflammation data array.
 
     :param: 2D array of data
-    :returns: vector of arithemetic means of data"""
+    :returns: vector of arithmetic means of data"""
     return np.mean(data, axis=0)
 
 
@@ -52,14 +52,57 @@ def patient_normalise(data):
     """
     if np.any(data < 0):
         raise ValueError('Inflammation values should not be negative')
-    max = np.max(data, axis=1)
+    max_val = np.max(data, axis=1)
     with np.errstate(invalid='ignore', divide='ignore'):
-        normalised = data / max[:, np.newaxis]
+        normalised = data / max_val[:, np.newaxis]
     normalised[np.isnan(normalised)] = 0
     normalised[normalised < 0] = 0
     return normalised
 
 
-# TODO(lesson-design) Add Patient class
+class Observation:
+    def __init__(self, day, value):
+        self.day = day
+        self.value = value
+
+    def __str__(self):
+        return self.value
+
+
+class Person:
+    def __init__(self, name):
+        self.name = name
+
+    def __str__(self):
+        return self.name
+
+
+class Patient(Person):
+    """A patient in an inflammation study."""
+    def __init__(self, name, observations=None):
+        super().__init__(name)
+
+        self.observations = []
+        if observations is not None:
+            self.observations = observations
+
+    def add_observation(self, value, day=None):
+        if day is None:
+            try:
+                day = self.observations[-1].day + 1
+
+            except IndexError:
+                day = 0
+
+        new_observation = Observation(value, day)
+
+        self.observations.append(new_observation)
+        return new_observation
+
+    @property
+    def last_observation(self):
+        return self.observations[-1]
+
+
 # TODO(lesson-design) Implement data persistence
 # TODO(lesson-design) Add Doctor class
