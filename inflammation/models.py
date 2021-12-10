@@ -61,11 +61,19 @@ def patient_normalise(data):
 
 
 class Observation:
+    """
+    A class associated with patient observations (day,value pairs)
+    """
     def __init__(self, day, value):
+        """
+        :param day: day of observation (integer)
+        :param value: value of inflammation on that day
+        """
         self.day = day
         self.value = value
 
     def __str__(self):
+        """Prints the inflammation value by default"""
         return self.value
 
 
@@ -78,8 +86,15 @@ class Person:
 
 
 class Patient(Person):
-    """A patient in an inflammation study."""
+    """A patient in an inflammation study.
+
+    Requires a patient name on instantiation.
+    """
     def __init__(self, name, observations=None):
+        """
+        :param name: Name of Patient (e.g. Alice)
+        :param observations: list of day,value pairs (defalut=None)
+        """
         super().__init__(name)
 
         self.observations = []
@@ -87,6 +102,13 @@ class Patient(Person):
             self.observations = observations
 
     def add_observation(self, value, day=None):
+        """
+        Adds a day,value pair (an observations) to a patient's records.
+
+        :param value: value of inflammation
+        :param observations: day value was recorded (corresponds to column)
+        """
+        
         if day is None:
             try:
                 day = self.observations[-1].day + 1
@@ -101,6 +123,7 @@ class Patient(Person):
 
     @property
     def last_observation(self):
+        """Returns the final observation in the set of them."""
         return self.observations[-1]
 
 
