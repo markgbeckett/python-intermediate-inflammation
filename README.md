@@ -33,7 +33,7 @@ Here are some key features of Inflam:
 
 ## Prerequisites
 
-Inflam requires the following Python packages:
+Inflam requires the following Python packages (using Python 3):
 
 - [NumPy](https://www.numpy.org/) - makes use of NumPy's statistical functions
 - [Matplotlib](https://matplotlib.org/stable/index.html) - uses Matplotlib to generate statistical plots
@@ -47,10 +47,14 @@ The following optional packages are required to run Inflam's unit tests:
 
 The software is available on [GitHub](https://github.com/markgbeckett/python-intermediate-inflammation).
 
-Having obtained a copy, you should install the prerequisites (see Prerequisites). 
+Having obtained a copy, you should install it via the commandline using the following (note use of Python 3):
+
+``pip3 install -r requirements.txt``
 
 To test that your installation is working, run the various tests in the test subdirectory. For example:
 
 ``python3 tests/test_models.py``
+
+(Note that Windows users may need to specify their Python interpretor using `python` instead of `python3` - please ensure to use a Python 3 interpretor).
 
 Successful tests produce no output.
