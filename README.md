@@ -1,25 +1,56 @@
-# Introduction
+# Inflam
 
-This is a template software project repository used by the [Intermediate Research Software Development Skills In Python](https://github.com/carpentries-incubator/python-intermediate-development).
+![Continuous Integration build in GitHub Actions](https://github.com/markgbeckett/python-intermediate-inflammation/workflows/CI/badge.svg?branch=develop)
 
-## Purpose
+Inflam is a data management system written in Python that manages trial data used in clinical inflammation studies.
 
-This repository is intended to be used as a code template which is copied by learners at [Intermediate Research Software Development Skills In Python](https://github.com/carpentries-incubator/python-intermediate-development) workshops.
-This can be done using the `Use this template` button towards the top right of this repo's GitHub page.
+## Document history
 
-## TODOs
+10/DEC/21 -- Initial version created.
 
-In a number of places, `TODO` comments indicate where code may be added during the
-workshop as the necessary topics are introduced.
-Each `TODO` comment should refer to a particular section of the workshop:
+## Acknowledgements
 
-- `TODO(lesson-collaborative)` - refers to the lesson titled 'Collaborative Software Development'
-- `TODO(lesson-robust)` - refers to the lesson titled 'Writing Robust Software'
-- `TODO(lesson-design)` - refers to the lesson titles 'Software Design in Python'
+The software has been developed by the [Software Sustainability Institute](https://www.software.ac.uk) as part of the basic training material for their Intermediate Research Software Engineering course. 
 
-## Tests
+## Licence
 
-Several tests have been implemented already, some of which are currently failing.
-These failing tests set out the requirements for the additional code to be implemented during the workshop.
+Apache License Version 2.0. See the LICENSE.txt file, which should be included in this distribution.
 
-The tests should be run using `pytest`, which will be introduced during the workshop.
+## Joke
+
+Q: Why do computer scientists confuse Halloween and Christmas?
+
+A: Because OCT 31 = DEC 25
+
+## Main features
+
+Here are some key features of Inflam:
+
+- Provide basic statistical analyses over clinical trial data
+- Ability to work on trial data in Comma-Separated Value (CSV) format
+- Generate plots of trial data
+- Analytical functions and views can be easily extended based on its Model-View-Controller architecture
+
+## Prerequisites
+
+Inflam requires the following Python packages:
+
+- [NumPy](https://www.numpy.org/) - makes use of NumPy's statistical functions
+- [Matplotlib](https://matplotlib.org/stable/index.html) - uses Matplotlib to generate statistical plots
+
+The following optional packages are required to run Inflam's unit tests:
+
+- [pytest](https://docs.pytest.org/en/stable/) - Inflam's unit tests are written using pytest
+- [pytest-cov](https://pypi.org/project/pytest-cov/) - Adds test coverage stats to unit testing
+
+## Installation and Testing
+
+The software is available on [GitHub](https://github.com/markgbeckett/python-intermediate-inflammation).
+
+Having obtained a copy, you should install the prerequisites (see Prerequisites). 
+
+To test that your installation is working, run the various tests in the test subdirectory. For example:
+
+``python3 tests/test_models.py``
+
+Successful tests produce no output.
