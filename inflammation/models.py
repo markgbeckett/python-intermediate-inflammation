@@ -101,7 +101,11 @@ class Patient(Person):
 
     @property
     def last_observation(self):
-        return self.observations[-1]
+        if len(self.observations) > 0:
+            return self.observations[-1]
+        else:
+            raise ValueError('length of observations <=0')
+
 
 
 # TODO(lesson-design) Implement data persistence
