@@ -3,6 +3,7 @@ import json
 
 
 class Serializer:
+    """Top-level Serializer class containing required functionality for serializing/ deserialising patient records"""
     @classmethod
     def serialize(cls, instances):
         raise NotImplementedError
@@ -21,6 +22,7 @@ class Serializer:
 
 
 class ObservationSerializer(Serializer):
+    """Serializer for Observer data"""
     model = models.Observation
 
     @classmethod
@@ -36,6 +38,7 @@ class ObservationSerializer(Serializer):
 
 
 class PatientSerializer(Serializer):
+    """Serializer for Patient data"""
     model = models.Patient
 
     @classmethod
@@ -65,6 +68,7 @@ class PatientSerializer(Serializer):
 
 
 class PatientJSONSerializer(PatientSerializer):
+    """JSON implementation of serializer"""
     @classmethod
     def save(cls, instances, path):
         with open(path, 'w') as jsonfile:
