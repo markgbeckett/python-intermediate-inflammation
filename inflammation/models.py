@@ -76,6 +76,9 @@ class Person:
     def __str__(self):
         return self.name
 
+    def __eq__(self, other):
+        return self.name == other.name
+
 
 class Patient(Person):
     """A patient in an inflammation study."""
