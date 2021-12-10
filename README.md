@@ -55,6 +55,6 @@ To test that your installation is working, run the various tests in the test sub
 
 ``python3 tests/test_models.py``
 
-(Note that Windows users may need to specify their Python interpretor using `python` instead of `python3` - please ensure to use a Python 3 interpretor).
+(Note that Windows users may need to specify their Python interpreter using `python` instead of `python3` - please ensure to use a Python 3 interpretor).
 
 Successful tests produce no output.
